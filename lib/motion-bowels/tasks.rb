@@ -1,5 +1,5 @@
-desc 'Dumps screen snapshots for all supported devices'
-namespace :bowels do
+namespace 'bowels' do
+  desc 'Dumps screen snapshots for all supported devices'  
   task :dump do
     base_dir = File.join( App.config.project_dir, %w(spec snapshot) )
     png_dir  = File.join( base_dir, "pngs" )
