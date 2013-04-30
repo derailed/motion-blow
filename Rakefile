@@ -13,16 +13,4 @@ Motion::Project::App.setup do |app|
     app.codesign_certificate  = ENV['dev_bs_certificate']
     app.provisioning_profile  = ENV['dev_bs_profile']
   end  
-  # 
-  # app.pods do
-  #   pod 'WCAlertView'
-  # end
 end
-
-# namespace :gen do
-#   desc 'Generates plist from css'
-#   task :plist do
-#     require File.expand_path('../lib/utils/generator.rb', __FILE__)
-#     MotionAwesome::Generator.gen_plist( File.join( File.dirname(__FILE__), %w[css font-awesome.css] ) )
-#   end
-# end
