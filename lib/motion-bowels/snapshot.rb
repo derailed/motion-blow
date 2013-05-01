@@ -2,7 +2,7 @@ module MotionBowels
   module_function 
   
   def dump
-    f = File.join( App.config.project_dir, %w[resources simulator.scpt] )
+    f = File.join( File.dirname(__FILE__), %w[.. assets dumper.scpt] )
 puts ">>>>> RUNNING #{f}"    
     %x[osascript #{f}]
   end
