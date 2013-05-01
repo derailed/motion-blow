@@ -5,15 +5,12 @@ namespace 'bowels' do
     bowel_file = File.join( base_dir, "bowels.rb" )
     png_dir    = File.join( base_dir, "pngs" )
 
-    raise "Meow! You need to set up a `snapshot directory in your spec directory" unless File.exists( base_dir )
-    raise "Meow! Unable to find blowel.rb in spec/snapshot dir" unless File.exists( base_dir )
+    raise "Meow! You need to set up a `snapshot directory in your spec directory" unless File.exists?( base_dir )
+    raise "Meow! You must define your script in spec/snapshot/bowels.rb" unless File.exists?( bowel_file )
+    raise "Hoy! Unable to find `osascript exec in PATH #{%x[which osascript].inspect}" if %x[which osascript].empty?
     
     FileUtils.rm_r( png_dir ) if File.exists?( png_dir )
     FileUtils.mkdir_p( png_dir )
-
-    # specs_dir = App.config.specs_dir
-    # App.config.specs_dir = base_dir
-    # App.config.files += Dir.glob(File.join(specs_dir, 'helpers', '*.rb'))  
   
     target = ENV['target'] || App.config.sdk_version
     retina = ENV['retina'] || %w[3.5 4]
@@ -30,7 +27,7 @@ namespace 'bowels' do
         ENV['device-family'] = family.to_s
         ENV['retina']        = retina
 
-        %x[target=#{target};device_family=#{family};retina=#{retina} && rake spec files=spec/snapshot/bowels.rb]
+        %x[target=#{target};device_family=#{family};retina=#{retina} && rake spec files=#{bowel_file}]
         
         snapshots = Dir.glob(File.join(ENV['HOME'], 'Desktop', 'iOS Simulator Screen shot *.png' ) )  
         dump_dir  = File.join( png_dir, dir_name )

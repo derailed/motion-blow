@@ -1,9 +1,8 @@
-module MotionBowels  
+module MotionBlow
   module_function 
   
-  def dump
+  def click!
     f = File.join( File.dirname(__FILE__), %w[.. assets dumper.scpt] )
-    raise "Hoy! Unable to find `osascript exec in PATH" if `which osascript`.empty?
     %x[osascript #{f}]
   end
 end
