@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+gem 'sugarcube'
+gem 'motion-map'
+gem 'motion-awesome'  
 
 group :development do
-  gem 'sugarcube'
-  gem 'motion-map'
-  gem 'motion-awesome'  
 end
 
 group :spec do

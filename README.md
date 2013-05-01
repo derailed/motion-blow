@@ -31,7 +31,7 @@ Make a directory spec/snapshot and add your screen driving spec.
 NOTE: The naming must be just right so MotionBlow can pick up your spec runner!
  
 ```ruby
-# spec/snapshots/blow.rb
+# spec/snapshot/blow.rb
 describe 'ColonBlow' do
   include MotionBlow
   
@@ -59,7 +59,7 @@ end
 > rake motion:blow
 ```
 
-NOTE: MotionBlow creates a spec/snapshot/pngs/device_xxx directory containing all
+MotionBlow creates a spec/snapshot/pngs/device_xxx directory containing all
 the screen shots per the specification of your snap! calls. 
 
 You can then upload your favorite app snapshots and you're done!
@@ -71,9 +71,6 @@ Fernand Galiana
 - http://github.com/derailed
 - http://twitter.com/kitesurfer
 - <fernand.galiana@gmail.com>
-
-Still work in progress. So please feel to fork or contact me if you run into issues or
-just want to send some good vibes...
 
 
 ## License
