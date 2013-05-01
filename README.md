@@ -1,15 +1,15 @@
-# MotionBlow - High-fiber formula for your Rubymotion dumps!
+# MotionBlow - High-fiber formula for your RubyMotion dumps!
 
 Tired of generating your screen dumps by hand for your appstore submissions?
 MotionBlow makes it easy to get all the hi-res screen dumps for your app across all
 your supported devices.
  
- 
 ## For the star-gizzards ;-)
 
 ```
 > git clone https://github.com/derailed/motion-blow.git
-> cd motion-bowels
+> cd motion-blow
+> bundle
 > rake motion:blow
 ```
 
@@ -21,20 +21,34 @@ gem install motion-blow
 
 ## Usage
 
+MotionBlow leverages MacBacon to exercise your app legs and makes it a snap to
+capture the essence of your various screens.
+
 ### Create a test runner
 
-Make a directory spec/snapshot and add you screen driving spec.
+Make a directory spec/snapshot and add your screen driving spec.
+
+NOTE: The naming must be just right so MotionBlow can pick up your spec runner!
  
 ```ruby
 # spec/snapshots/blow.rb
 describe 'ColonBlow' do
   include MotionBlow
   
-  it "should dump all my screens correctly" do
-    click!
+  tests MyTopLevelViewController
+  
+  it "dumps all my screens correctly" do
+    # Take the snapshot
+    snap!
+    
+    # Nav somewhere else
     tap( 'chain' )
-    click!
+    
+    # Take a new snapshot
+    snap!
     ...
+    # Done bail out of the simulator
+    flush!
   end
 end
 ```
@@ -46,7 +60,7 @@ end
 ```
 
 NOTE: MotionBlow creates a spec/snapshot/pngs/device_xxx directory containing all
-the screen shots per the specification of your click! calls. 
+the screen shots per the specification of your snap! calls. 
 
 You can then upload your favorite app snapshots and you're done!
 
