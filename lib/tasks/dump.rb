@@ -1,8 +1,8 @@
-namespace 'bowels' do
+namespace 'motion' do
   desc 'Dumps screen snapshots for all supported devices'  
-  task :dump do
+  task :blow do
     base_dir   = File.join( App.config.project_dir, %w(spec snapshot) )
-    bowel_file = File.join( base_dir, "bowels.rb" )
+    bowel_file = File.join( base_dir, "blow.rb" )
     png_dir    = File.join( base_dir, "pngs" )
 
     raise "Meow! You need to set up a `snapshot directory in your spec directory" unless File.exists?( base_dir )
