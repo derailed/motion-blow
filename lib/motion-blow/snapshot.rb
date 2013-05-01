@@ -2,16 +2,17 @@ module MotionBlow
   module_function 
   
   def snap!
-    run( File.join( File.dirname(__FILE__), %w[.. assets dumper.scpt] ) )
+puts "SNAP!"    
+    run( 'dumper.scpt' )
   end
   
   def flush!
-    run( File.join( File.dirname(__FILE__), %w[.. assets sim_quit.scpt] ) )
+    run( 'sim_quit.scpt' )
   end
   
   private
   
   def run( script_file )
-    %x[osascript #{script_file}]
+    %x[osascript #{File.join( File.dirname(__FILE__), %w[.. assets script_file] )}]
   end    
 end
