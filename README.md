@@ -1,4 +1,4 @@
-# MotionBlow - High-fiber formula for your RubyMotion dumps!
+# MotionBlow - High-fiber formula for your rubymotion dumps!
 
 Tired of generating your screen dumps by hand for your appstore submissions?
 MotionBlow makes it easy to get all the hi-res screen dumps for your app across all
