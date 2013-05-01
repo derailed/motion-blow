@@ -13,10 +13,10 @@ namespace 'motion' do
     FileUtils.mkdir_p( png_dir )
   
     target = ENV['target'] || App.config.sdk_version
-    retina = ENV['retina'] || %w[3.5 4]
-  
-    retina.each do |retina|      
-      App.config.device_family.each do |family|
+
+    App.config.device_family.each do |family|  
+      retina = ENV['retina'] || family == :ipad ? %w[true] : %w[3.5 4]
+      retina.each do |retina|
         dir_name = App.config.device_family_string( family, target, retina )
         
         puts "-"*100
@@ -27,8 +27,7 @@ namespace 'motion' do
         ENV['device-family'] = family.to_s
         ENV['retina']        = retina
 
-        %x[target=#{target};device_family=#{family};retina=#{retina} && rake spec files=#{bowel_file}]
-        
+        %x[rake spec files=#{bowel_file} target=#{target} device_family=#{family} retina=#{retina}]
         snapshots = Dir.glob(File.join(ENV['HOME'], 'Desktop', 'iOS Simulator Screen shot *.png' ) )  
         dump_dir  = File.join( png_dir, dir_name )
         FileUtils.rm_r dump_dir if File.exists?( dump_dir )
