@@ -1,10 +1,19 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    motion-awesome (0.0.4)
+      motion-map
+    motion-map (0.0.4)
     motion-stump (0.2.1)
+    rake (10.0.4)
+    sugarcube (0.20.20)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  motion-awesome
+  motion-map
   motion-stump
+  rake
+  sugarcube

@@ -1,8 +1,11 @@
 module MotionBlow
   module_function 
   
+  def dump?
+    ENV['MOTION_BLOW_ENV'] == 'on'
+  end
+  
   def snap!
-puts "SNAP!"    
     run( 'dumper.scpt' )
   end
   
@@ -13,6 +16,6 @@ puts "SNAP!"
   private
   
   def run( script_file )
-    %x[osascript #{File.join( File.dirname(__FILE__), %w[.. assets script_file] )}]
-  end    
+    %x[osascript #{File.join( File.dirname(__FILE__), %W[.. assets #{script_file}] )}]
+  end      
 end

@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Fernand Galiana']
   gem.email         = ['fernand.galiana@gmail.com']
   gem.summary       = %{High-fiber formula for your Rubymotion dumps.}
-  gem.description   = "Apple submissions got you down?" +
+  gem.description   = "AppStore submissions got you down?" +
                       "MotionBlow allows you to dump all you screens in hi-res accross a range of devices"
                       "Write a test script - run it - upload screen dumps - Done!"
   gem.homepage      = 'http://derailed.github.com/motion-blow'
